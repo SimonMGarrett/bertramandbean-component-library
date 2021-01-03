@@ -1,8 +1,6 @@
 // Import vue components
 import * as components from '@/lib-components/index';
 
-console.log('--- COMPONENTS', components);
-
 // install function executed by Vue.use()
 const install = function installBertramandbeanComponentLibrary(Vue) {
   if (install.installed) return;

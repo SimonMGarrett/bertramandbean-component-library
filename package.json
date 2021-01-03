@@ -3,7 +3,7 @@
   "author": {
     "name": "Simon MJ Garrett"
   },
-  "version": "0.0.10",
+  "version": "0.0.15",
   "description": "Vue JS components for use in BERTRAM + BEAN projects. May be of use to others",
   "license": "MIT",
   "main": "dist/bertramandbean-component-library.ssr.js",
@@ -40,7 +40,6 @@
     "rollup-plugin-import-css": "^1.1.4",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-vue": "^5.1.6",
-    "sass-loader": "^10.1.0",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   },

@@ -44,7 +44,7 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 svg {
   border: none;
   fill: currentColor;

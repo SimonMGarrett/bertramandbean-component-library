@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mdiInformation } from '@mdi/js/mdi.js';
+import { mdiInformation } from './mdi.js';
 import BNBIcon from './BNBIcon.vue';
 import BNBModalDialog from './BNBModalDialog.vue';
 

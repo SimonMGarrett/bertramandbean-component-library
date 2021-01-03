@@ -1,5 +1,9 @@
 <template>
-  <a :href="path" @click.prevent="propRouter.push(path)">
+  <a
+    :href="path"
+    :style="`color: ${color};`"
+    @click.prevent="propRouter.push(path)"
+  >
     <slot />
   </a>
 </template>
@@ -7,6 +11,10 @@
 <script>
 export default {
   props: {
+    color: {
+      type: String,
+      default: '#888',
+    },
     path: {
       type: String,
       default: '/',
@@ -18,7 +26,7 @@ export default {
           // Whichever object you push (though it's likely to be Vue.$router),
           // you need to ensure it has a push(<string>) method.
           push: (path) => {
-            return (location.path = path);
+            return (location.href = path);
           },
         };
       },

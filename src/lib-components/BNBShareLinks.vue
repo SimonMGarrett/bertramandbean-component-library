@@ -36,7 +36,7 @@ import {
   mdiFacebook,
   mdiLinkedin,
   mdiEmail,
-} from '@mdi/js/mdi.js';
+} from './mdi.js';
 import BNBIcon from './BNBIcon.vue';
 
 export default {

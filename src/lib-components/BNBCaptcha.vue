@@ -75,7 +75,7 @@
           >B+B Captcha</span
         ><br class="hidden md:inline" />
         <bnb-link
-          to="/privacy"
+          path="/privacy"
           class="text-gray-700 text-center inline no-underline"
           style="font-size: 12px"
         >
@@ -87,7 +87,7 @@
           >&ndash;</span
         >
         <bnb-link
-          to="/terms-and-conditions"
+          path="/terms-and-conditions"
           class="text-gray-700 text-center inline no-underline"
           style="font-size: 12px"
         >
@@ -107,7 +107,7 @@ import {
   mdiCheckboxBlankCircle,
   mdiSquare,
   mdiSquareOutline,
-} from '@mdi/js/mdi.js';
+} from './mdi.js';
 import BNBIcon from './BNBIcon.vue';
 import BNBLink from './BNBLink.vue';
 import './index.css';

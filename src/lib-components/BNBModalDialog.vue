@@ -108,7 +108,7 @@
 
 <script>
 import Vue from 'vue';
-import { mdiCloseThick } from '@mdi/js/mdi.js';
+import { mdiCloseThick } from './mdi.js';
 import BNBIcon from './BNBIcon.vue';
 import BNBSpinner from './BNBSpinner.vue';
 

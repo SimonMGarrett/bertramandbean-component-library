@@ -13,12 +13,7 @@
       {{ tab.title }}
     </button>
 
-    <div
-      class="tabs__active-line"
-      :style="
-        `width: ${activeLineWidth}px; transform: translateX(${activeLineOffset}px)`
-      "
-    />
+    <div class="tabs__active-line" />
   </nav>
 </template>
 
@@ -79,15 +74,19 @@ export default {
         return;
       }
       const element = this.$refs[newValue][0];
+      const tabActiveLine = document.querySelector('.tabs__active-line');
 
       this.activeLineWidth = element.clientWidth;
       this.activeLineOffset = element.offsetLeft;
+
+      tabActiveLine.style.width = `${this.activeLineWidth}px`;
+      tabActiveLine.style.transform = `translateX(${this.activeLineOffset}px)`;
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .tabs {
   position: relative;
   margin: 0 auto;
