@@ -92,49 +92,49 @@ export default {
   position: relative;
   margin: 0 auto;
   padding: 0;
+}
 
-  &__item {
-    @apply inline-block relative top-0 left-0;
-    @apply font-navFont font-medium uppercase;
-    @apply m-0 pt-8 px-4 pb-6;
-    letter-spacing: 1.4px;
-    line-height: 1.25rem;
-    text-decoration: none;
-    font-size: 13px;
-    border: none;
-    color: rgba(255, 255, 255, 0.65);
-    background-color: transparent;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
+.tabs__item {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 2rem 1rem 1.5rem 1rem;
+  letter-spacing: 1.4px;
+  line-height: 1.25rem;
+  text-decoration: none;
+  font-size: 13px;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+.tabs__item_active {
+  color: rgba(255, 255, 255, 0.8);
+}
+.tabs__item:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid transparent;
+}
+.tabs__item:focus {
+  outline: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(255, 255, 255, 0.9);
+}
 
-    &_active {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    &:hover {
-      color: rgba(255, 255, 255, 1);
-      background-color: rgba(255, 255, 255, 0.1);
-      border-bottom: 2px solid transparent;
-    }
-
-    &:focus {
-      outline: none;
-      border-bottom: 2px solid transparent;
-      color: rgba(255, 255, 255, 0.9);
-    }
-  }
-
-  &__active-line {
-    background-color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    transform: translateX(0);
-    transition: transform 0.4s ease-in-out, width 0.4s ease-in-out;
-  }
+.tabs__active-line {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  transform: translateX(0);
+  transition: transform 0.4s ease-in-out, width 0.4s ease-in-out;
 }
 </style>

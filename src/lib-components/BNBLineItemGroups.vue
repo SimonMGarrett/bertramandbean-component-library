@@ -134,22 +134,34 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .line-item-group {
-  @apply relative block leading-7 text-75 bg-gray-100 text-gray-800 border border-gray-400 rounded mr-2 p-1 pl-6 mb-1;
-  // max-width: 45%;
+  position: relative;
+  display: block;
+  /* line-height: 1.75rem; */
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, 1);
+  color: #2d3748;
   line-height: 1.3;
-
-  &__checkbox {
-    @apply absolute top-0 left-0 ml-1;
-    margin-top: 11px;
-  }
+  border: 1px solid rgba(156, 163, 175, 1);
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  padding: 4px 4px 4px 24px;
+}
+.line-item-group__checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 4px;
+  margin-top: 11px;
 }
 .line-item-group.checked {
-  @apply bg-bbpink-500 text-white;
+  /* @apply bg-bbpink-500 text-white; */
 
-  & label {
-    @apply text-white;
-  }
+  color: white;
+}
+.line-item-group.checked label {
+  color: white;
 }
 </style>

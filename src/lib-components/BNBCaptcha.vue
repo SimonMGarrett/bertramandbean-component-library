@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative bg-gray-100 border border-gray-400 shadow-sm rounded-sm px-4 py-4"
+    class="bnb-captcha relative bg-gray-100 border border-gray-400 shadow-sm rounded-sm px-4 py-4"
   >
     <!-- hidden -->
     <input
@@ -205,6 +205,13 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.bnb-captcha {
+  font-family: Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
 .shape {
   width: 2rem;
   height: 2rem;
@@ -233,6 +240,7 @@ export default Vue.extend({
 }
 
 .checkbox-area .checkbox-wrapper .checkbox {
+  box-sizing: border-box;
   border: 2px solid rgba(156, 163, 175, 1);
   border-radius: 0.125rem;
   display: inline-block;
@@ -249,24 +257,20 @@ export default Vue.extend({
   display: inline-block;
   background-color: white;
   color: rgba(47, 133, 90, 1);
-  font-family: Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-    Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI',
-    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
-  width: 1.5rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
 
 .checkbox-area .checkbox-wrapper .helper-text {
-  position: absolute;
   display: inline-block;
-
-  line-height: 12px;
-  top: -8px;
-  left: 40px;
+  line-height: 1.5rem;
+  top: -2px;
+  left: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .bnb-notice {

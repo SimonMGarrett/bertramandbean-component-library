@@ -15,6 +15,12 @@ If it IS loaded, PurgeCSS should clean things up. */
 .flex {
   display: flex;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-auto {
+  flex: 1 1 auto;
+}
 .justify-around {
   justify-content: space-around;
 }
@@ -72,7 +78,11 @@ If it IS loaded, PurgeCSS should clean things up. */
   background-color: transparent;
 }
 
-/* Text */
+/* Text + Font */
+
+.text-white {
+  color: white;
+}
 
 .text-gray-700 {
   --text-opacity: 1;
@@ -98,6 +108,27 @@ If it IS loaded, PurgeCSS should clean things up. */
 
 .text-center {
   text-align: center;
+}
+
+.text-75 {
+  font-size: 0.75rem;
+}
+.text-100 {
+  font-size: 1rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
+
+.font-system {
+  font-family: Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 /* Border */
@@ -128,10 +159,23 @@ If it IS loaded, PurgeCSS should clean things up. */
 
 /* Margin and Padding */
 
+.ml-4 {
+  margin-left: 1rem;
+}
+.ml-12 {
+  margin-left: 3rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
 .mt-4 {
   margin-top: 1rem;
 }
 
+.mb-0 {
+  margin-bottom: 0;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -141,6 +185,16 @@ If it IS loaded, PurgeCSS should clean things up. */
   margin-bottom: 0;
 }
 
+.p-0 {
+  padding: 0;
+}
+.p-3 {
+  padding: 12px;
+}
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -155,6 +209,10 @@ If it IS loaded, PurgeCSS should clean things up. */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 
 .py-4 {
   padding-top: 1rem;
@@ -162,6 +220,26 @@ If it IS loaded, PurgeCSS should clean things up. */
 }
 
 /* Misc */
+
+.left-0 {
+  left: 0;
+}
+.top-0 {
+  top: 0;
+}
+.-top-1 {
+  top: -1px;
+}
+
+.w-12 {
+  width: 48px;
+}
+.w-24 {
+  width: 96px;
+}
+.h-12 {
+  height: 48px;
+}
 
 .no-underline {
   text-decoration: none;
@@ -176,11 +254,24 @@ If it IS loaded, PurgeCSS should clean things up. */
     position: absolute;
   }
 
+  .md\:fixed {
+    position: fixed;
+  }
+
+  .md\:ml-0 {
+    margin-left: 0;
+  }
   .md\:mt-0 {
     margin-top: 0;
   }
-
+  .md\:mt-32 {
+    margin-top: 8rem;
+  }
   .md\:inline {
     display: inline;
+  }
+
+  .md\:block {
+    display: block;
   }
 }

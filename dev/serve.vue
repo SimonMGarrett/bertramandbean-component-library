@@ -28,14 +28,16 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <bnb-captcha />
-    <bnb-icon />
-    <bnb-info-button />
-    <bnb-line-item-groups />
-    <bnb-link />
-    <bnb-modal-dialog />
     <bnb-share-links />
-    <bnb-spinner />
-    <bnb-tabs />
+    <div class="ml-12">
+      <bnb-captcha />
+      <bnb-icon />
+      <bnb-info-button />
+      <bnb-line-item-groups />
+      <bnb-link />
+      <bnb-modal-dialog />
+      <bnb-spinner />
+      <bnb-tabs />
+    </div>
   </div>
 </template>

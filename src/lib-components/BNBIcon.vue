@@ -49,5 +49,8 @@ svg {
   border: none;
   fill: currentColor;
   font-size: inherit;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 </style>

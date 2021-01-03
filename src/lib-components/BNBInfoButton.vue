@@ -54,9 +54,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .infobutton {
-  @apply bg-transparent text-gray-700 font-black border border-gray-300 rounded-full ml-1 mt-1 cursor-pointer outline-none;
   width: 24px;
   height: 24px;
   line-height: 18px;
@@ -64,14 +63,26 @@ export default {
   display: inline;
   position: relative;
   top: 2px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #4a5568;
+  color: rgba(74, 85, 104, 1);
+  font-weight: 900;
+  border: 1px solid #e2e8f0;
+  border-radius: 100%;
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 
-  svg {
-    @apply relative;
-    left: -3px;
-    top: -3px;
-  }
-  &:focus {
-    @apply outline-none;
-  }
+.infobutton svg {
+  position: relative;
+  left: -3px;
+  top: -3px;
+}
+
+.infobutton:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 </style>

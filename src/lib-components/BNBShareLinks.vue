@@ -1,21 +1,23 @@
 <template>
   <div
-    class="wrapper relative md:fixed flex md:block left-0 top-0 ml-2 md:ml-0 mt:0 md:mt-32"
+    class="wrapper relative md:fixed flex md:block left-0 top-0 ml-2 md:ml-0 mt:0 md:mt-32 font-system"
   >
     <div
       v-for="(link, indx) in shareLinks"
       :key="indx"
-      class="share-link relative w-12 h-12 bg-gray-500 text-white cursor-pointer p-3"
+      class="share-link relative w-12 h-12 bg-gray-500 text-white cursor-pointer"
       :style="`background-color: ${link.bgColor}`"
     >
-      <a :href="link.url" class="text-white">
-        <bnb-icon
-          :path-info="link.iconSVGPath"
-          class="relative -top-1 text-white"
-          display="inline"
-        />
+      <a :href="link.url" class="text-white" style="line-height: 24px;">
+        <div class="p-3">
+          <bnb-icon
+            :path-info="link.iconSVGPath"
+            class="relative top-0 text-white"
+            display="inline"
+          />
+        </div>
         <div
-          class="absolute left-0 top-0 w-24 h-12 text-white ml-12"
+          class="share-link-text absolute left-0 top-0 w-24 h-12 text-white ml-12"
           :style="`background-color: ${link.bgColor}`"
         >
           <div class="py-3">
@@ -114,7 +116,7 @@ export default {
 </script>
 
 <style>
-.share-link > a > div {
+.share-link > a > div.share-link-text {
   overflow: hidden;
   max-width: 0;
   font-weight: bold;
