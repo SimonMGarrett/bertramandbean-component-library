@@ -158,6 +158,11 @@ export default Vue.extend({
       ariaLabel: `dialog-${new Date().getTime()}`,
     };
   },
+  mounted() {
+    // Move to the bottom of the body to ensure it's always relative to the body, not a container element
+    const el = this.$el;
+    document.body.appendChild(el); // NOTE: which is more correct: the bottom of <body> or the bottom of #app?
+  },
   methods: {
     setState(stateBool) {
       this.isOpen = stateBool;

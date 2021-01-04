@@ -66,9 +66,14 @@
       B+B Captcha
       <br class="bnb-notice__line-break" />
       <span class="bnb-notice__separator"> : </span>
-      <bnb-link path="/privacy" text-decoration="none">Privacy</bnb-link>
+      <bnb-link path="/privacy" color="#697383" text-decoration="none"
+        >Privacy</bnb-link
+      >
       &ndash;
-      <bnb-link path="/terms-and-conditions" text-decoration="none"
+      <bnb-link
+        path="/terms-and-conditions"
+        color="#697383"
+        text-decoration="none"
         >Terms</bnb-link
       >
     </div>
@@ -188,8 +193,8 @@ export default Vue.extend({
     Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI',
     'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
-  background-color: rgba(249, 250, 251, 1);
-  border: 1px solid rgba(156, 163, 175, 1);
+  background-color: #f7fafc;
+  border: 1px solid #cbd5e0;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.125rem;
   padding: 1rem;
@@ -199,7 +204,7 @@ export default Vue.extend({
   margin-bottom: 1rem;
   padding: 0.5rem 0;
   background-color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .shapes-test .shapes-container {
@@ -258,7 +263,6 @@ export default Vue.extend({
   line-height: 1.25rem; /* minus 4px for border */
   text-align: center;
   background-color: #fff;
-  background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
 }
 .not-a-robot-test .checkbox-wrapper .checkbox .checkmark {
@@ -277,7 +281,7 @@ export default Vue.extend({
   top: -2px;
   left: 8px;
   display: inline-block;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   margin: 0;
   padding: 0;
   color: #2d3748;
@@ -286,7 +290,7 @@ export default Vue.extend({
 
 .bnb-notice {
   font-size: 12px;
-  color: #2d3748;
+  color: #697383;
   position: relative;
   bottom: -0.25rem;
   right: 0;

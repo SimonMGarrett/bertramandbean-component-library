@@ -1,13 +1,13 @@
 <template>
-  <nav class="bnb-tabs" :class="wrapperClass">
+  <nav class="bnb-tabs">
     <button
       v-for="tab in tabs"
-      :ref="tab.value"
       :key="tab.title"
-      class="bnb-tabs__item"
+      :ref="tab.value"
       type="button"
+      class="bnb-tabs__item"
       :class="[{ 'bnb-tabs__item_active': tab.value === currentTab }]"
-      :disabled="tab.disabled || false"
+      :style="`color: ${textColor};`"
       @click="handleClick(tab.value)"
     >
       {{ tab.title }}
@@ -24,10 +24,13 @@
 export default {
   name: 'BNBTabs',
   props: {
-    wrapperClass: {
+    textColor: {
       type: String,
-      required: false,
-      default: '',
+      default: '#ffffff',
+    },
+    underlineColor: {
+      type: String,
+      default: '#ffffff',
     },
     tabs: {
       type: Array,
@@ -35,7 +38,7 @@ export default {
         return [];
       },
     },
-    currentTab: {
+    initialCurrentTab: {
       type: String,
       default: '',
     },
@@ -43,35 +46,19 @@ export default {
   data: () => ({
     activeLineWidth: 0,
     activeLineOffset: 0,
-    newTab: '',
+    currentTab: '',
   }),
-  watch: {
-    currentTab(newCurrentTab) {
-      if (this.newTab === newCurrentTab) {
-        return;
-      }
-      this.moveActiveLine(newCurrentTab);
-      this.newTab = newCurrentTab;
-    },
-    // updated () {
-    //   this.moveActiveLine(this.currentTab)
-    // },
-  },
   mounted() {
-    this.moveActiveLine(this.currentTab);
-    this.newTab = this.currentTab;
+    this.moveActiveLine(this.initialCurrentTab);
   },
   methods: {
     handleClick(value) {
       this.$emit('onClick', value);
       this.moveActiveLine(value);
-
-      this.newTab = value;
     },
     moveActiveLine(newValue) {
-      if (!this.currentTab) {
-        return;
-      }
+      console.log('newValue', newValue); // eslint-disable-line no-console
+      this.currentTab = newValue;
 
       if (!this.$refs || !this.$refs[newValue] || !this.$refs[newValue][0]) {
         return;
@@ -79,9 +66,12 @@ export default {
       const element = this.$refs[newValue][0];
       const tabActiveLine = document.querySelector('.bnb-tabs__active-line');
 
+      console.log('REFS', element, tabActiveLine); // eslint-disable-line no-console
+
       this.activeLineWidth = element.clientWidth;
       this.activeLineOffset = element.offsetLeft;
 
+      tabActiveLine.style.backgroundColor = this.underlineColor;
       tabActiveLine.style.width = `${this.activeLineWidth}px`;
       tabActiveLine.style.transform = `translateX(${this.activeLineOffset}px)`;
     },
@@ -108,7 +98,8 @@ export default {
   text-decoration: none;
   font-size: 13px;
   border: none;
-  color: rgba(255, 255, 255, 0.65);
+  opacity: 0.65;
+  /* color: rgba(255, 255, 255, 0.65); */
   background-color: transparent;
   border-bottom: 2px solid transparent;
   cursor: pointer;
@@ -119,18 +110,20 @@ export default {
   color: rgba(255, 255, 255, 0.8);
 }
 .bnb-tabs__item:hover {
-  color: rgba(255, 255, 255, 1);
+  opacity: 1;
+  /* color: rgba(255, 255, 255, 1); */
   background-color: rgba(255, 255, 255, 0.1);
   border-bottom: 2px solid transparent;
 }
 .bnb-tabs__item:focus {
   outline: none;
+  opacity: 0.9;
   border-bottom: 2px solid transparent;
-  color: rgba(255, 255, 255, 0.9);
+  /* color: rgba(255, 255, 255, 0.9); */
 }
 
 .bnb-tabs__active-line {
-  background-color: white;
+  /* background-color: white; */
   position: absolute;
   bottom: 0;
   left: 0;

@@ -60,7 +60,7 @@ export default Vue.extend({
       <hr />
 
       <h4>Icon</h4>
-      <bnb-icon :path-info="icons.mdiTwitter" />
+      <bnb-icon color="#888" :path-info="icons.mdiTwitter" />
       <hr />
 
       <h4>Info button + Modal dialog</h4>
@@ -78,19 +78,26 @@ export default Vue.extend({
       <hr />
 
       <h4>Tabs</h4>
-      <bnb-tabs :tabs="tabs" :current-tab="currentTab" />
+      <bnb-tabs
+        text-color="#333"
+        underline-color="#c00"
+        :tabs="tabs"
+        :initial-current-tab="currentTab"
+      />
     </div>
   </div>
 </template>
 
 <style>
+h4 {
+  color: #333;
+}
 .component-table {
   margin-left: 4rem;
-  background: #888;
+  /* background: #888; */
   color: white;
   padding: 1rem;
 }
-
 .captcha-component {
   margin-bottom: 1rem;
 }
