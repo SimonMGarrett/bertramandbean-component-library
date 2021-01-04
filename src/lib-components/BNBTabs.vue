@@ -1,23 +1,26 @@
 <template>
-  <nav class="tabs" :class="wrapperClass">
+  <nav class="bnb-tabs" :class="wrapperClass">
     <button
       v-for="tab in tabs"
       :ref="tab.value"
       :key="tab.title"
-      class="tabs__item"
+      class="bnb-tabs__item"
       type="button"
-      :class="[{ tabs__item_active: tab.value === currentTab }]"
+      :class="[{ 'bnb-tabs__item_active': tab.value === currentTab }]"
       :disabled="tab.disabled || false"
       @click="handleClick(tab.value)"
     >
       {{ tab.title }}
     </button>
 
-    <div class="tabs__active-line" />
+    <div class="bnb-tabs__active-line" />
   </nav>
 </template>
 
 <script>
+//
+// Based on https://www.npmjs.com/package/vue-tabs-with-active-line
+//
 export default {
   name: 'BNBTabs',
   props: {
@@ -74,7 +77,7 @@ export default {
         return;
       }
       const element = this.$refs[newValue][0];
-      const tabActiveLine = document.querySelector('.tabs__active-line');
+      const tabActiveLine = document.querySelector('.bnb-tabs__active-line');
 
       this.activeLineWidth = element.clientWidth;
       this.activeLineOffset = element.offsetLeft;
@@ -87,13 +90,13 @@ export default {
 </script>
 
 <style scoped>
-.tabs {
+.bnb-tabs {
   position: relative;
   margin: 0 auto;
   padding: 0;
 }
 
-.tabs__item {
+.bnb-tabs__item {
   display: inline-block;
   position: relative;
   top: 0;
@@ -112,21 +115,21 @@ export default {
   overflow: hidden;
   z-index: 1;
 }
-.tabs__item_active {
+.bnb-tabs__item_active {
   color: rgba(255, 255, 255, 0.8);
 }
-.tabs__item:hover {
+.bnb-tabs__item:hover {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(255, 255, 255, 0.1);
   border-bottom: 2px solid transparent;
 }
-.tabs__item:focus {
+.bnb-tabs__item:focus {
   outline: none;
   border-bottom: 2px solid transparent;
   color: rgba(255, 255, 255, 0.9);
 }
 
-.tabs__active-line {
+.bnb-tabs__active-line {
   background-color: white;
   position: absolute;
   bottom: 0;

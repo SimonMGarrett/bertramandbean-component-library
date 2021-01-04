@@ -6,6 +6,7 @@
     :width="width"
     role="img"
     aria-hidden="true"
+    class="bnb-icon"
     :style="`display: ${display}`"
   >
     <path :d="pathInfo" />
@@ -14,7 +15,6 @@
 
 <script>
 import Vue from 'vue';
-import './index.css';
 
 export default Vue.extend({
   name: 'BNBIcon',

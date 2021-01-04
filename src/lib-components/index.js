@@ -10,6 +10,4 @@ import BNBSpinner from './BNBSpinner.vue';
 import BNBTabs from './BNBTabs.vue';
 import { mdiTwitter } from './mdi.js'
 
-console.log('mdiTwitter', mdiTwitter) // eslint-disable-line no-console
-
 export { BNBCaptcha, BNBIcon, BNBInfoButton, BNBLink, BNBModalDialog, BNBShareLinks, BNBSpinner, BNBTabs , mdiTwitter};

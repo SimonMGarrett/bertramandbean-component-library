@@ -1,28 +1,20 @@
 <template>
-  <div
-    class="wrapper relative md:fixed flex md:block left-0 top-0 ml-2 md:ml-0 mt:0 md:mt-32 font-system"
-  >
+  <div class="bnb-share-links">
     <div
       v-for="(link, indx) in shareLinks"
       :key="indx"
-      class="share-link relative w-12 h-12 bg-gray-500 text-white cursor-pointer"
+      class="share-link"
       :style="`background-color: ${link.bgColor}`"
     >
-      <a :href="link.url" class="text-white" style="line-height: 24px;">
-        <div class="p-3">
-          <bnb-icon
-            :path-info="link.iconSVGPath"
-            class="relative top-0 text-white"
-            display="inline"
-          />
+      <a :href="link.url">
+        <div class="share-link-icon">
+          <bnb-icon :path-info="link.iconSVGPath" display="inline" />
         </div>
         <div
-          class="share-link-text absolute left-0 top-0 w-24 h-12 text-white ml-12"
+          class="share-link-text"
           :style="`background-color: ${link.bgColor}`"
         >
-          <div class="py-3">
-            {{ link.displayText }}
-          </div>
+          {{ link.displayText }}
         </div>
       </a>
     </div>
@@ -30,6 +22,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import {
   mdiTwitter,
   mdiWhatsapp,
@@ -39,7 +32,7 @@ import {
 } from './mdi.js';
 import BNBIcon from './BNBIcon.vue';
 
-export default {
+export default Vue.extend({
   name: 'BNBShareLinks',
   components: {
     'bnb-icon': BNBIcon,
@@ -112,17 +105,66 @@ export default {
       };
     },
   },
-};
+});
 </script>
 
-<style>
-.share-link > a > div.share-link-text {
+<style scoped>
+.bnb-share-links {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: flex;
+  z-index: 29;
+
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  font-family: Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+@media (min-width: 768px) {
+  .bnb-share-links {
+    position: fixed;
+    display: block;
+    margin-left: 0;
+    margin-top: 8rem;
+  }
+}
+
+.bnb-share-links .share-link {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  background-color: rgba(107, 114, 128, 1);
+  cursor: pointer;
+}
+
+.bnb-share-links .share-link a {
+  color: white;
+  line-height: 24px;
+}
+.bnb-share-links .share-link > a > div.share-link-icon {
+  padding: 0.75rem;
+}
+.bnb-share-links .share-link > a > div.share-link-text {
   overflow: hidden;
   max-width: 0;
   font-weight: bold;
   transition: max-width 0.25s ease-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6rem;
+  height: 3rem;
+  line-height: 3rem;
+  color: white;
+  margin-left: 3rem;
+  padding: 0;
 }
-.share-link:hover > a > div {
+.bnb-share-links .share-link:hover > a > div {
   max-width: 84px;
 }
 </style>

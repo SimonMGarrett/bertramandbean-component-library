@@ -1,99 +1,76 @@
 <template>
-  <div
-    class="bnb-captcha relative bg-gray-100 border border-gray-400 shadow-sm rounded-sm px-4 py-4"
-  >
+  <div class="bnb-captcha">
     <!-- hidden -->
     <input
       v-model="honeypot"
-      class="honeypot absolute"
+      class="honeypot"
       type="hidden"
       name="first_name"
     />
 
-    <!-- test area -->
-    <div class="relative test-area bg-transparent">
-      <div class="test mb-4">
-        <div class="inner-wrapper py-2 bg-white shadow">
-          <div class="shapes-container flex justify-around mb-4">
-            <bnb-icon
-              class="shape circle text-gray-800"
-              :class="user.shapeChosen === 'circle' ? 'checked-shape' : ''"
-              :path-info="icons.mdiCheckboxBlankCircleOutline"
-              @click.native="userChoosesShape('circle')"
-            />
-            <bnb-icon
-              class="shape square text-gray-800"
-              :class="user.shapeChosen === 'square' ? 'checked-shape' : ''"
-              :path-info="icons.mdiSquareOutline"
-              @click.native="userChoosesShape('square')"
-            />
-            <bnb-icon
-              class="shape triangle text-gray-800"
-              :class="user.shapeChosen === 'triangle' ? 'checked-shape' : ''"
-              :path-info="icons.mdiTriangleOutline"
-              @click.native="userChoosesShape('triangle')"
-            />
-          </div>
+    <div class="shapes-test">
+      <div class="shapes-container">
+        <bnb-icon
+          class="shape circle"
+          :class="user.shapeChosen === 'circle' ? 'checked-shape' : ''"
+          :path-info="icons.mdiCheckboxBlankCircleOutline"
+          @click.native="userChoosesShape('circle')"
+        />
+        <bnb-icon
+          class="shape square"
+          :class="user.shapeChosen === 'square' ? 'checked-shape' : ''"
+          :path-info="icons.mdiSquareOutline"
+          @click.native="userChoosesShape('square')"
+        />
+        <bnb-icon
+          class="shape triangle"
+          :class="user.shapeChosen === 'triangle' ? 'checked-shape' : ''"
+          :path-info="icons.mdiTriangleOutline"
+          @click.native="userChoosesShape('triangle')"
+        />
+      </div>
 
-          <!-- challenge text -->
-          <div class="challenge text-gray-900 text-center my-0 py-0">
-            Tap or click the <span class="challenge-chosen">square</span>
-          </div>
+      <!-- challenge text -->
+      <div class="challenge-text">
+        Tap or click the <span class="challenge-chosen">square</span>
+      </div>
+    </div>
+
+    <!-- Not a robot -->
+    <div class="not-a-robot-test">
+      <div
+        v-for="(checkbox, indx) in checkboxes"
+        :key="indx"
+        class="checkbox-wrapper"
+        :class="
+          checkboxToChoose === checkbox.num
+            ? `chosen checkbox-${checkbox.num}`
+            : `off-left checkbox-${checkbox.num}`
+        "
+      >
+        <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
+        <div class="checkbox" @click="userClicksNotRobotCheckbox(checkbox.num)">
+          <span class="checkmark">&#10003;</span>
         </div>
+        <p
+          class="helper-text"
+          @click="userClicksNotRobotCheckbox(checkbox.num)"
+        >
+          I'm not a robot
+        </p>
       </div>
+    </div>
 
-      <!-- Not a robot -->
-      <div class="relative checkbox-area text-left">
-        <div
-          v-for="(checkbox, indx) in checkboxes"
-          :key="indx"
-          class="checkbox-wrapper relative"
-          :class="
-            checkboxToChoose === checkbox.num
-              ? `chosen checkbox-${checkbox.num}`
-              : `off-left checkbox-${checkbox.num}`
-          "
-        >
-          <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
-          <div
-            class="checkbox"
-            @click="userClicksNotRobotCheckbox(checkbox.num)"
-          >
-            <span class="checkmark">&#10003;</span>
-          </div>
-          <p
-            class="helper-text relative text-gray-900 cursor-pointer"
-            @click="userClicksNotRobotCheckbox(checkbox.num)"
-          >
-            I'm not a robot
-          </p>
-        </div>
-      </div>
-
-      <div class="bnb-notice relative mt-4 md:absolute md:mt-0 text-center">
-        <span class="text-gray-700 text-center inline" style="font-size: 12px"
-          >B+B Captcha</span
-        ><br class="hidden md:inline" />
-        <bnb-link
-          path="/privacy"
-          class="text-gray-700 text-center inline no-underline"
-          style="font-size: 12px"
-        >
-          Privacy
-        </bnb-link>
-        <span
-          class="relative text-gray-700 text-center inline"
-          style="font-size: 12px"
-          >&ndash;</span
-        >
-        <bnb-link
-          path="/terms-and-conditions"
-          class="text-gray-700 text-center inline no-underline"
-          style="font-size: 12px"
-        >
-          Terms
-        </bnb-link>
-      </div>
+    <!-- B+B/Privacy/Terms -->
+    <div class="bnb-notice">
+      B+B Captcha
+      <br class="bnb-notice__line-break" />
+      <span class="bnb-notice__separator"> : </span>
+      <bnb-link path="/privacy" text-decoration="none">Privacy</bnb-link>
+      &ndash;
+      <bnb-link path="/terms-and-conditions" text-decoration="none"
+        >Terms</bnb-link
+      >
     </div>
   </div>
 </template>
@@ -110,7 +87,6 @@ import {
 } from './mdi.js';
 import BNBIcon from './BNBIcon.vue';
 import BNBLink from './BNBLink.vue';
-import './index.css';
 
 export default Vue.extend({
   name: 'BNBCaptcha',
@@ -206,21 +182,42 @@ export default Vue.extend({
 
 <style scoped>
 .bnb-captcha {
+  position: relative;
+  box-sizing: border-box;
   font-family: Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
     Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI',
     'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+  background-color: rgba(249, 250, 251, 1);
+  border: 1px solid rgba(156, 163, 175, 1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0.125rem;
+  padding: 1rem;
 }
 
-.shape {
+.shapes-test {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.shapes-test .shapes-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.shapes-test .shapes-container .shape {
   width: 2rem;
   height: 2rem;
+  color: #2d3748;
   background-color: white;
   border-radius: 0;
   cursor: pointer;
 }
 
-.checked-shape {
+.shapes-test .shapes-container .checked-shape {
   --text-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--text-opacity));
@@ -230,7 +227,14 @@ export default Vue.extend({
   fill: currentColor;
 }
 
-.challenge .challenge-chosen {
+.challenge-text {
+  color: #2d3748;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+.challenge-text .challenge-chosen {
   text-transform: uppercase;
 }
 
@@ -239,7 +243,11 @@ export default Vue.extend({
   position: absolute;
 }
 
-.checkbox-area .checkbox-wrapper .checkbox {
+.not-a-robot-test {
+  text-align: left;
+}
+
+.not-a-robot-test .checkbox-wrapper .checkbox {
   box-sizing: border-box;
   border: 2px solid rgba(156, 163, 175, 1);
   border-radius: 0.125rem;
@@ -253,7 +261,7 @@ export default Vue.extend({
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
 }
-.checkbox-area .checkbox-wrapper .checkbox .checkmark {
+.not-a-robot-test .checkbox-wrapper .checkbox .checkmark {
   display: inline-block;
   background-color: white;
   color: rgba(47, 133, 90, 1);
@@ -264,18 +272,47 @@ export default Vue.extend({
   transition: opacity 0.25s ease-in-out;
 }
 
-.checkbox-area .checkbox-wrapper .helper-text {
-  display: inline-block;
-  line-height: 1.5rem;
+.not-a-robot-test .checkbox-wrapper .helper-text {
+  position: relative;
   top: -2px;
   left: 8px;
+  display: inline-block;
+  line-height: 1.5rem;
   margin: 0;
   padding: 0;
+  color: #2d3748;
+  cursor: pointer;
 }
 
 .bnb-notice {
-  bottom: 4px;
-  right: 3px;
-  line-height: 0.8;
+  font-size: 12px;
+  color: #2d3748;
+  position: relative;
+  bottom: -0.25rem;
+  right: 0;
+  text-align: center;
+  line-height: 1.1;
+}
+.bnb-notice__line-break {
+  display: none;
+}
+.bnb-notice__separator {
+}
+@media (min-width: 768px) {
+  .bnb-notice {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+  }
+  .bnb-notice__line-break {
+    display: inline;
+  }
+  .bnb-notice a {
+    text-decoration: none;
+  }
+  .bnb-notice__separator {
+    display: none;
+  }
 }
 </style>

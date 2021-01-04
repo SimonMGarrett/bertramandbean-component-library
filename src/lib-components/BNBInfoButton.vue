@@ -1,10 +1,8 @@
 <template>
-  <div class="info-wrapper inline font-normal">
-    <div class="info-button inline">
-      <button @click="setInfoState(true)" class="infobutton">
-        <bnb-icon :path-info="icons.mdiInformation" display="inline" />
-      </button>
-    </div>
+  <div class="bnb-info-button">
+    <button @click="setInfoState(true)" class="info-button">
+      <bnb-icon :path-info="icons.mdiInformation" display="inline" />
+    </button>
     <bnb-modal-dialog
       :ref="infoRef"
       :title="title"
@@ -55,33 +53,35 @@ export default {
 </script>
 
 <style>
-.infobutton {
+.bnb-info-button {
+  display: inline;
+}
+.info-button {
+  box-sizing: border-box;
+  display: inline;
+  position: relative;
+  top: 2px;
   width: 24px;
   height: 24px;
   line-height: 18px;
   padding: 2px;
-  display: inline;
-  position: relative;
-  top: 2px;
-  box-sizing: border-box;
   background-color: transparent;
   color: #4a5568;
-  color: rgba(74, 85, 104, 1);
   font-weight: 900;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #4a5568;
   border-radius: 100%;
   cursor: pointer;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-.infobutton svg {
+.info-button svg {
   position: relative;
   left: -3px;
   top: -3px;
 }
 
-.infobutton:focus {
+.info-button:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }

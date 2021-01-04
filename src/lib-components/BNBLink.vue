@@ -1,7 +1,8 @@
 <template>
   <a
+    class="bnb-link"
     :href="path"
-    :style="`color: ${color};`"
+    :style="`color: ${color}; text-decoration: ${textDecoration}`"
     @click.prevent="propRouter.push(path)"
   >
     <slot />
@@ -14,6 +15,10 @@ export default {
     color: {
       type: String,
       default: '#888',
+    },
+    textDecoration: {
+      type: String,
+      default: 'underline',
     },
     path: {
       type: String,

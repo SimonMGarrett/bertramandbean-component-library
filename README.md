@@ -1,6 +1,6 @@
 # BERTRAM + BEAN Standard Web Components
 
-NOTE: Until this reaches at least 0.1.0, this should be regarded as a work in progress - grab whatever code you want, but don't use as-is.
+**NOTE:** Until this reaches at least 0.1.0, this should be regarded as a work in progress - grab whatever code you want, but don't use it as-is.
 
 ## Motivation
 
@@ -12,7 +12,7 @@ people who work for BERTRAM + BEAN, so you may need to modify them to make them 
 for you.
 
 All components use TailwindCSS though we've added standard CSS classes so they don't look too bad out of the box.
-Ideal you should use PurgeCSS (or something similar) to remove what's not needed.
+Ideally, you should use PurgeCSS (or something similar) to remove what's not needed.
 
 ## Licencing
 

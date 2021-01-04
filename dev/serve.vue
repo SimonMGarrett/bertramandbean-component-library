@@ -54,9 +54,9 @@ export default Vue.extend({
 <template>
   <div id="app">
     <bnb-share-links />
-    <div class="ml-12 bg-gray-700 text-white p-3">
+    <div class="component-table">
       <h4>Captcha</h4>
-      <bnb-captcha />
+      <bnb-captcha class="captcha-component" />
       <hr />
 
       <h4>Icon</h4>
@@ -64,7 +64,9 @@ export default Vue.extend({
       <hr />
 
       <h4>Info button + Modal dialog</h4>
-      <bnb-info-button />
+      <bnb-info-button title="Info button and modal dialog"
+        >CONTENT!</bnb-info-button
+      >
       <hr />
 
       <h4>Link</h4>
@@ -72,7 +74,7 @@ export default Vue.extend({
       <hr />
 
       <h4>Spinner</h4>
-      <bnb-spinner :show="true" />
+      <bnb-spinner :show="true" color="#336688" />
       <hr />
 
       <h4>Tabs</h4>
@@ -80,3 +82,16 @@ export default Vue.extend({
     </div>
   </div>
 </template>
+
+<style>
+.component-table {
+  margin-left: 4rem;
+  background: #888;
+  color: white;
+  padding: 1rem;
+}
+
+.captcha-component {
+  margin-bottom: 1rem;
+}
+</style>

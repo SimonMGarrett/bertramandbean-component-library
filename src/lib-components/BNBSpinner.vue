@@ -1,5 +1,5 @@
 <template>
-  <span v-if="show" class="spinner" :style="style"></span>
+  <span v-if="show" class="bnb-spinner" :style="style"></span>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-.spinner {
+.bnb-spinner {
   position: relative;
   top: -2px;
   display: inline-block;
