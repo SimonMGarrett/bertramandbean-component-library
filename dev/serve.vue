@@ -101,4 +101,9 @@ h4 {
 .captcha-component {
   margin-bottom: 1rem;
 }
+
+/* Tailwind rule does this, we need to overcome it in all cases */
+a {
+  color: rgba(45, 55, 72, 1) !important;
+}
 </style>

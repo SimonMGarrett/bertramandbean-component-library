@@ -2,7 +2,9 @@
   <a
     class="bnb-link"
     :href="path"
-    :style="`color: ${color}; text-decoration: ${textDecoration}`"
+    :style="
+      `color: ${color} !important; text-decoration: ${textDecoration} !important`
+    "
     @click.prevent="propRouter.push(path)"
   >
     <slot />

@@ -143,11 +143,11 @@ export default Vue.extend({
 }
 
 .bnb-share-links .share-link a {
-  color: white;
   line-height: 24px;
 }
 .bnb-share-links .share-link > a > div.share-link-icon {
   padding: 0.75rem;
+  color: white;
 }
 .bnb-share-links .share-link > a > div.share-link-text {
   overflow: hidden;
