@@ -47,7 +47,7 @@ export default {
   top: -2px;
   display: inline-block;
   vertical-align: middle;
-  border: 2px solid #f3f3f3; /* Light grey */
+  border: 2px solid #c2c2c2; /* Light grey */
   border-radius: 50%;
   /* border notch color + border width + width + height defined above */
   margin: 0;

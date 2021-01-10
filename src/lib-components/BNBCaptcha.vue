@@ -204,7 +204,8 @@ export default Vue.extend({
   margin-bottom: 1rem;
   padding: 0.5rem 0;
   background-color: white;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15); */
+  border: 1px solid rgb(203, 213, 224, 0.5);
 }
 
 .shapes-test .shapes-container {

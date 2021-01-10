@@ -1,6 +1,7 @@
 <template>
   <nav class="bnb-tabs">
     <button
+      v-ripple.400="'rgba(0, 0, 0, 0.02)'"
       v-for="tab in tabs"
       :key="tab.title"
       :ref="tab.value"
@@ -18,6 +19,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Ripple from 'vue-ripple-directive';
+Vue.directive('ripple', Ripple);
 //
 // Based on https://www.npmjs.com/package/vue-tabs-with-active-line
 //
@@ -57,7 +61,6 @@ export default {
       this.moveActiveLine(value);
     },
     moveActiveLine(newValue) {
-      console.log('newValue', newValue); // eslint-disable-line no-console
       this.currentTab = newValue;
 
       if (!this.$refs || !this.$refs[newValue] || !this.$refs[newValue][0]) {
@@ -65,8 +68,6 @@ export default {
       }
       const element = this.$refs[newValue][0];
       const tabActiveLine = document.querySelector('.bnb-tabs__active-line');
-
-      console.log('REFS', element, tabActiveLine); // eslint-disable-line no-console
 
       this.activeLineWidth = element.clientWidth;
       this.activeLineOffset = element.offsetLeft;

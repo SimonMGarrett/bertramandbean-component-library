@@ -1,6 +1,6 @@
 # BERTRAM + BEAN Standard Web Components
 
-**NOTE:** Until this reaches at least 0.1.0, this should be regarded as a work in progress - grab whatever code you want, but don't use it as-is.
+> **NOTE:** Until this reaches at least 0.1.0, this should be regarded as a work in progress - grab whatever code you want, but don't use it as-is.
 
 ## Motivation
 
