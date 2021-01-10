@@ -6,7 +6,7 @@
       :src="article.author.img"
       alt="Author"
     />
-    <div class="my-2 pt2 text-75">
+    <div class="text-section my-2 pt2 text-75">
       <div v-if="article.author.name" class="text-gray-600 font-bold">
         {{ article.author.name }}
       </div>
@@ -42,6 +42,9 @@ export default {
 .bnb-avatar {
   font-family: sans-serif;
 }
+.bnb-avatar .text-section {
+  line-height: 15px;
+}
 .relative {
   position: relative;
 }
@@ -68,7 +71,7 @@ export default {
   margin-bottom: 0.5rem;
 }
 .pt2 {
-  padding-top: 2.25px;
+  padding-top: 2px;
 }
 .text-75 {
   font-size: 0.75rem;
