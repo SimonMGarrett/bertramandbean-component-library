@@ -20,7 +20,7 @@
 
 <script>
 import Vue from 'vue';
-import Ripple from 'vue-ripple-directive';
+import Ripple from './ripple.js';
 Vue.directive('ripple', Ripple);
 //
 // Based on https://www.npmjs.com/package/vue-tabs-with-active-line

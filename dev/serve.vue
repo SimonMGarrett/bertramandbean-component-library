@@ -1,56 +1,3 @@
-<script>
-import Vue from 'vue';
-import { BNBCaptcha } from '@/entry';
-import { BNBIcon } from '@/entry';
-import { BNBInfoButton } from '@/entry';
-import { BNBLink } from '@/entry';
-import { BNBModalDialog } from '@/entry';
-import { BNBShareLinks } from '@/entry';
-import { BNBSpinner } from '@/entry';
-import { BNBTabs } from '@/entry';
-import { mdiTwitter } from '@/entry';
-
-// Export
-export default Vue.extend({
-  name: 'ServeDev',
-  components: {
-    'bnb-captcha': BNBCaptcha,
-    'bnb-icon': BNBIcon,
-    'bnb-info-button': BNBInfoButton,
-    'bnb-link': BNBLink,
-    'bnb-modal-dialog': BNBModalDialog,
-    'bnb-share-links': BNBShareLinks,
-    'bnb-spinner': BNBSpinner,
-    'bnb-tabs': BNBTabs,
-  },
-  data() {
-    return {
-      // Test data to pass to components
-      tabs: [
-        {
-          title: 'Home',
-          value: '/',
-        },
-        {
-          title: 'Pricing long title',
-          value: '/pricing',
-        },
-        {
-          title: 'About us',
-          value: '/about-us',
-        },
-        {
-          title: 'Services',
-          value: '/services',
-        },
-      ],
-      currentTab: '/pricing',
-      icons: { mdiTwitter },
-    };
-  },
-});
-</script>
-
 <template>
   <div id="app">
     <bnb-share-links />
@@ -61,6 +8,10 @@ export default Vue.extend({
 
       <h4>Icon</h4>
       <bnb-icon color="#888" :path-info="icons.mdiTwitter" />
+      <hr />
+
+      <h4>Avatar</h4>
+      <bnb-avatar color="#888" :article="article" />
       <hr />
 
       <h4>Info button + Modal dialog</h4>
@@ -87,6 +38,68 @@ export default Vue.extend({
     </div>
   </div>
 </template>
+
+<script>
+import Vue from 'vue';
+import { BNBCaptcha } from '@/entry';
+import { BNBIcon } from '@/entry';
+import { BNBAvatar } from '@/entry';
+import { BNBInfoButton } from '@/entry';
+import { BNBLink } from '@/entry';
+import { BNBModalDialog } from '@/entry';
+import { BNBShareLinks } from '@/entry';
+import { BNBSpinner } from '@/entry';
+import { BNBTabs } from '@/entry';
+import { mdiTwitter } from '@/entry';
+
+// Export
+export default Vue.extend({
+  name: 'ServeDev',
+  components: {
+    'bnb-captcha': BNBCaptcha,
+    'bnb-icon': BNBIcon,
+    'bnb-avatar': BNBAvatar,
+    'bnb-info-button': BNBInfoButton,
+    'bnb-link': BNBLink,
+    'bnb-modal-dialog': BNBModalDialog,
+    'bnb-share-links': BNBShareLinks,
+    'bnb-spinner': BNBSpinner,
+    'bnb-tabs': BNBTabs,
+  },
+  data() {
+    return {
+      // Test data to pass to components
+      article: {
+        createdAt: 'Sun, Jan 10 2021',
+        author: {
+          img: require('../src/lib-components/img/smjg-sqr.jpg'),
+          name: 'Simon Garrett',
+        },
+      },
+      tabs: [
+        {
+          title: 'Home',
+          value: '/',
+        },
+        {
+          title: 'Pricing long title',
+          value: '/pricing',
+        },
+        {
+          title: 'About us',
+          value: '/about-us',
+        },
+        {
+          title: 'Services',
+          value: '/services',
+        },
+      ],
+      currentTab: '/pricing',
+      icons: { mdiTwitter },
+    };
+  },
+});
+</script>
 
 <style>
 h4 {

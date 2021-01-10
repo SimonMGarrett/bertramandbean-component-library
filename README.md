@@ -22,6 +22,9 @@ We endeavour to cite our code sources where possible but, for safety's sake, ple
 borrowed code from all over the place, mashed it to do what we want, and shared it again.
 To our knowledge all code here is free for use in commercial projects.
 
+Uses modified versions of `vue-ripple-directive` and `vue-tabs-with-active-line`, which can both
+be found on NPM.
+
 ## Getting started
 
 ```

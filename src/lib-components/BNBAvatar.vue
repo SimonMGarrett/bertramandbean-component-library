@@ -1,14 +1,17 @@
 <template>
-  <div class="bnb-avatar flex">
+  <div class="bnb-avatar flex relative">
     <img
+      v-if="article.author.img"
       class="rounded-full w-8 h-8 m-2"
-      :src="require(`~/assets/img/${article.author.img}`)"
+      :src="article.author.img"
       alt="Author"
     />
-    <div class="info relative -top-1 my-2 pt-0 text-75">
-      <div class="text-gray-600 font-bold">{{ article.author.name }}</div>
+    <div class="my-2 pt2 text-75">
+      <div v-if="article.author.name" class="text-gray-600 font-bold">
+        {{ article.author.name }}
+      </div>
       <div v-if="article.createdAt" class="text-gray-600">
-        {{ $formatDate(article.createdAt) }}
+        {{ article.createdAt }}
       </div>
     </div>
 
@@ -36,11 +39,14 @@ export default {
 </script>
 
 <style>
+.bnb-avatar {
+  font-family: sans-serif;
+}
 .relative {
   position: relative;
 }
-.-top-1 {
-  top: -1px;
+.top-2 {
+  top: 2px;
 }
 .flex {
   display: flex;
@@ -61,8 +67,8 @@ export default {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.pt-0 {
-  padding-top: 0;
+.pt2 {
+  padding-top: 2.25px;
 }
 .text-75 {
   font-size: 0.75rem;
