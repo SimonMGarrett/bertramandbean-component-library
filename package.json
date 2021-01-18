@@ -3,8 +3,8 @@
   "author": {
     "name": "Simon MJ Garrett"
   },
-  "version": "0.0.44",
-  "description": "Vue JS components for use in BERTRAM + BEAN projects. May be of use to others",
+  "version": "0.0.46",
+  "description": "Vue JS components for use in BERTRAM + BEAN projects. May be of use to others.",
   "license": "MIT",
   "main": "dist/bertramandbean-component-library.ssr.js",
   "browser": "dist/bertramandbean-component-library.esm.js",
