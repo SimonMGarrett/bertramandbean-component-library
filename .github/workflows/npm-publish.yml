@@ -1,13 +1,13 @@
 name: NPM Publish
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [published] # or 'created'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
