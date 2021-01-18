@@ -1,7 +1,11 @@
 name: NPM Publish
+# on:
+#   release:
+#     types: [published] # or 'created'
 on:
-  release:
-    types: [published] # or 'created'
+  push:
+    branches:
+      - master # Change this to your default branch
 jobs:
   build:
     runs-on: ubuntu-latest
