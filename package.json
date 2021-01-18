@@ -3,7 +3,7 @@
   "author": {
     "name": "Simon MJ Garrett"
   },
-  "version": "0.0.35",
+  "version": "0.0.43",
   "description": "Vue JS components for use in BERTRAM + BEAN projects. May be of use to others",
   "license": "MIT",
   "main": "dist/bertramandbean-component-library.ssr.js",
@@ -16,14 +16,16 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
-    "build-pub": "cross-env NODE_ENV=production rollup --config build/rollup.config.js && npm publish",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "convert": "~/Sites/_CI_COMMANDS/es5conv.sh dist lib && mv ./lib/*.js ./dist/",
+    "build-pub": "npm run build && npm run convert && npm publish",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@rollup/plugin-alias": "^2.2.0",

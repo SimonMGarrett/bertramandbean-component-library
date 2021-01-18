@@ -17,7 +17,7 @@
         class="fixed mt-12 md:mt-0 z-40 inset-0 overflow-y-auto"
       >
         <div
-          class="flex items-end justify-center min-h-screen px-4 pb-16 text-center sm:block sm:p-0"
+          class="flex items-start justify-center min-h-screen px-4 pb-16 text-center sm:block sm:p-0"
         >
           <!--
               Background overlay, show/hide based on modal state.
@@ -35,6 +35,7 @@
 
           <!-- This element is to trick the browser into centering the modal contents. (SMG removed &#8203; that followed) -->
           <span class="hidden sm:inline-block sm:align-middle sm:h-screen" />
+
           <!--
               Modal panel, show/hide based on modal state.
 
@@ -46,28 +47,32 @@
                 To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             -->
           <div
-            class="inline-block align-bottom bg-white text-gray-700 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            class="inline-block bg-white text-gray-700 rounded-lg text-left overflow-hidden shadow-xl transform transition-all p-4 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
             role="dialog"
             aria-modal="true"
             :aria-labelledby="ariaLabel"
           >
-            <div class="as-h4 modal-title font-bold m-4 mb-8 w-4/5">
+            <!-- Heading -->
+            <div
+              class="as-h4 modal-title flex space-between text-gray-800 font-bold px-4 py-4"
+            >
               {{ title }}
+              <bnb-icon
+                class="ml-4 close-icon text-gray-600"
+                :path-info="icons.mdiCloseThick"
+                @click.native="isOpen = false"
+              />
             </div>
-            <bnb-icon
-              class="close-icon text-gray-600"
-              :path-info="icons.mdiCloseThick"
-              @click.native="isOpen = false"
-            />
 
+            <!-- HTML content -->
             <div class="bg-white px-4 py-0">
-              <!-- HTML body content -->
               <slot />
             </div>
-            <!-- Action buttons -->
+
+            <!-- Footer / Action buttons -->
             <div
               v-show="hideButtons === false"
-              class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+              class="bg-white px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
             >
               <span
                 v-show="hideOk === false"
@@ -181,9 +186,9 @@ export default Vue.extend({
 }
 
 .close-icon {
-  position: absolute;
+  /* position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 1rem; */
   cursor: pointer;
 }
 
@@ -246,9 +251,15 @@ If it IS loaded, PurgeCSS should clean things up. */
 .justify-center {
   justify-content: center;
 }
-.items-end {
-  align-items: flex-end;
+.space-between {
+  justify-content: space-between;
 }
+.items-start {
+  align-items: flex-start;
+}
+/* .items-end {
+  align-items: flex-end;
+} */
 .min-h-screen {
   min-height: 100vh;
 }
@@ -264,56 +275,16 @@ If it IS loaded, PurgeCSS should clean things up. */
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
-}
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-}
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
-}
-.bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
-}
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
 }
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
-.bg-gray-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
-}
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
-}
-.bg-gray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-}
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
-}
 
 /* Text + Font */
-
-.text-white {
-  color: white;
-}
 
 .text-gray-600 {
   --text-opacity: 1;
@@ -451,7 +422,10 @@ If it IS loaded, PurgeCSS should clean things up. */
   padding: 0;
 }
 .p-3 {
-  padding: 12px;
+  padding: 0.75rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 
 .pb-16 {
