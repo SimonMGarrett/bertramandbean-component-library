@@ -54,7 +54,7 @@
           >
             <!-- Heading -->
             <div
-              class="as-h4 modal-title flex space-between text-gray-800 font-bold px-4 py-4 bob"
+              class="as-h4 modal-title flex space-between text-gray-800 font-bold px-4 py-4"
             >
               {{ title }}
               <bnb-icon
