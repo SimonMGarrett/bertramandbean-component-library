@@ -2,12 +2,14 @@
   <nav class="bnb-tabs">
     <button
       v-ripple.400="'rgba(0, 0, 0, 0.02)'"
-      v-for="tab in tabs"
+      v-for="(tab, indx) in tabs"
       :key="tab.title"
       :ref="tab.value"
       type="button"
       class="bnb-tabs__item"
       :class="[{ 'bnb-tabs__item_active': tab.value === currentTab }]"
+      :data-cy-title="tab.title.toLowerCase().replaceAll(' ', '-')"
+      :data-cy="`tab-${indx}`"
       :style="`color: ${textColor};`"
       @click="handleClick(tab.value)"
     >
@@ -99,7 +101,7 @@ export default {
   text-decoration: none;
   font-size: 13px;
   border: none;
-  opacity: 0.65;
+  opacity: 0.75;
   /* color: rgba(255, 255, 255, 0.65); */
   background-color: transparent;
   border-bottom: 2px solid transparent;
